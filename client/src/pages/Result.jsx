@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import {assets} from '../assets/assets'
+import {motion} from 'framer-motion'
+
+
 const Result = () => {
 const [img,setimg]=useState(assets.sample_img_1)
 const [imgLoaded,setImgLoaded]=useState(false )  
@@ -11,7 +14,13 @@ const onSubmitHandler= async (e)=>{
 }
 
   return (
-    <form onSubmit={onSubmitHandler}
+    <motion.form
+    initial={{opacity:0.2,y:100}}
+    transition={{duration:1}}
+    whileInView={{opacity:1,y:0}}
+    viewport={{once:true}}
+    
+    onSubmit={onSubmitHandler}
     className='flex flex-col min-h-[90vh] justify-center items-center'>
     <div>
       <div className='relative'>
@@ -37,7 +46,7 @@ const onSubmitHandler= async (e)=>{
     <a href={img} download className='bg-zinc-900 px-10 py-3 rounded-full cursor-pointer'>Download</a>
     </div>
    }
-    </form>
+    </motion.form>
   )
 }
 
