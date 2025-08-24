@@ -19,7 +19,7 @@ export const AppContext = createContext()
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
     // this will load the data from the api
-    const loadCredisData=async()=>{
+    const loadCreditsData=async()=>{
         try {
             const {data} =await axios.get(backendUrl+'/api/user/credits',{headers:{token}})
             
@@ -38,11 +38,11 @@ export const AppContext = createContext()
             const {data}=await axios.post(backendUrl+'/api/image/generate-image',{prompt},{headers:{token}})
 
             if(data.sucess){
-                loadCredisData()
+                loadCreditsData()
                 return data.resultImage
             }else{
                 toast.error(data.message)
-                loadCredisData()
+                loadCreditsData()
                 if(data.creditBalance===0){
                     navigate('/buy')
                 }
@@ -62,12 +62,12 @@ export const AppContext = createContext()
     }
     useEffect(()=>{
         if(token){
-            loadCredisData()
+            loadCreditsData()
         }
     },[token])
 
     const value = {
-        logged,setLogged,showLogin,setShowLogin,backendUrl,token,setToken,credit,setCredit,loadCredisData, logout,generateImage
+        logged,setLogged,showLogin,setShowLogin,backendUrl,token,setToken,credit,setCredit,loadCreditsData, logout,generateImage
     }
 
    return (
