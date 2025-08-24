@@ -36,12 +36,14 @@ Users can generate images from text prompts using AI, purchase credits via **Raz
 ```bash
 git clone https://github.com/Anshika0611/Imagi-AI.git
 cd Imagi-AI
-
+```
 ### 2. Setup Backend
+```bash
 cd server
 npm install
 
 # Create a .env file inside /server:
+
 MONGODB_URI=your_mongodb_connection
 JWT_SECRET=your_jwt_secret
 CLIPDROP_API=your_clipdrop_api_key
@@ -51,8 +53,9 @@ CURRENCY="INR"
 
 # Run backend
 - npm run server
-
+```
 ### 3. Setup Frontend
+```bash
 - cd ../client
 - npm install
 
@@ -62,14 +65,14 @@ VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
 
 # Run frontend
 - npm run dev
-
+```
 - Now open 👉 http://localhost:5173
 
 ## 🌍 Deployment (Render)
-
+```bash
 - Frontend deployed as Static Site → https://imagi-ai-frontend.onrender.com
 
 - Backend deployed as Web Service → https://imagi-ai-backend.onrender.com
 
 - In Render Dashboard → set environment variables (.env values above).
-
+```
